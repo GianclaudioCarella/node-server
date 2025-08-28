@@ -9,7 +9,10 @@ app.use(cors());
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "*", // or specify your allowed origin
+    origin: [
+      'http://localhost:3000',
+      'http://192.168.2.94:3001',
+      'https://gmc-server-node-dxgzduech2fxftdv.swedencentral-01.azurewebsites.net'],
     methods: ["GET", "POST"]
   }
 });
