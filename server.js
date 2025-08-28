@@ -48,6 +48,6 @@ app.get('/', (req, res) => {
   res.send('Express server with Socket.IO is running.');
 });
 
-httpServer.listen(3001, '0.0.0.0', () => {
-  console.log('Express & Socket.IO server running on port 3001');
+httpServer.listen(8080, '0.0.0.0', () => {
+  console.log('Express & Socket.IO server running on port 8080');
 });
