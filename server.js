@@ -1,11 +1,18 @@
-const { createServer } = require('http');
-const { Server } = require('socket.io');
 
-const httpServer = createServer();
+const express = require('express');
+const http = require('http');
+const { Server } = require('socket.io');
+const cors = require('cors');
+
+const app = express();
+app.use(cors());
+
+const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: '*',
-  },
+    origin: "*", // or specify your allowed origin
+    methods: ["GET", "POST"]
+  }
 });
 
 let users = {};
@@ -37,6 +44,10 @@ io.on('connection', (socket) => {
   });
 });
 
+app.get('/', (req, res) => {
+  res.send('Express server with Socket.IO is running.');
+});
+
 httpServer.listen(3001, '0.0.0.0', () => {
-  console.log('Socket.IO server running on port 3001');
+  console.log('Express & Socket.IO server running on port 3001');
 });
