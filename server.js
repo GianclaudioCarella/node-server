@@ -12,6 +12,7 @@ const io = new Server(httpServer, {
     origin: [
       'http://localhost:3000',
       'http://192.168.2.94:3001',
+      'https://private-chat-teal.vercel.app/',
       'https://private-chat-3x6ohyf1r-gianclaudiocarellas-projects.vercel.app/',
       'https://gmc-server-node-dxgzduech2fxftdv.swedencentral-01.azurewebsites.net'],
     methods: ["GET", "POST"]
